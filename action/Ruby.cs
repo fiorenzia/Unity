@@ -3,26 +3,30 @@ using System.Collections;
 
 public class Ruby : MonoBehaviour 
 {
-	//bool dash=false;
 	int dashtime=0;
-
 	// Use this for initialization
-	void Start () 
-	{
+	void Start (){
 	
 	}
 	
 	// Update is called once per frame
-	void Update () 
-	{
+	void Update (){
 		Debug.Log(+dashtime);
 		if (Input.GetKey (KeyCode.D)) {
 			transform.Translate (0.005f, 0, 0);
 			dashtime++;
-			if (dashtime > 60) {
-				transform.Translate (0.05f, 0, 0);
+			if(dashtime>60){
+			transform.Translate (0.05f, 0, 0);
 			}
-		} else {
+		}
+		if (Input.GetKey (KeyCode.A)) {
+			transform.Translate (-0.005f, 0, 0);
+			dashtime++;
+			if (dashtime > 60) {
+			transform.Translate (-0.05f, 0, 0);
+			}
+		}
+		if (Input.GetKeyUp (KeyCode.D) || Input.GetKeyUp (KeyCode.A)) {
 			dashtime=0;
 		}
 	}
