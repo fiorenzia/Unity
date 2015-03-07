@@ -4,7 +4,7 @@ public class Ruby : MonoBehaviour
 {
 	bool rightleft=false;
 
-	//Use this for initialization
+	// Use this for initialization
 	void Start ()
 	{
 	
@@ -16,15 +16,16 @@ public class Ruby : MonoBehaviour
 		if (Input.GetKey (KeyCode.D)) 
 		{
 			transform.Translate (0.1f, 0, 0);
-			dashtime++;
 			rightleft=false; // right side
-
 		}
 		if (Input.GetKey (KeyCode.A)) 
 		{
 			transform.Translate (-0.1f, 0, 0);
-			dashtime++;
 			rightleft=true; // left side
+		}
+		if (Input.GetKeyDown (KeyCode.Space)) 
+		{
+			transform.Translate (0,1.5f,0);
 		}
 
 		if (Input.GetMouseButtonDown (0))//Left Button
